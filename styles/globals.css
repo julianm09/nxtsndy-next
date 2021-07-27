@@ -1,9 +1,17 @@
+
+@import url("https://use.typekit.net/fkg7mxg.css");
+@import url('general-sans.css');
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: Helvetica Neue, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, sans-serif;
+
+    font-family: 'GeneralSans-Variable';
+font-weight: 400;
+font-style: normal;
+font-size: 16px;
 }
 
 a {
@@ -13,4 +21,19 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+
+
+
+
+
+@keyframes scroll{
+  from{
+    transform: translate(100px);
+  }
+
+  to{
+    transform: translate(1000px);
+  }
 }
