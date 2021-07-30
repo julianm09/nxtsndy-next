@@ -20,15 +20,13 @@ const ContainerUI = styled.div`
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  background: white;
+  background: ${props => props.color.primary};
 
   position: relative;
 
-  @media(max-width: 1200px){
+  @media (max-width: 1200px) {
     width: 90%;
-}
-
-
+  }
 `;
 
 const GridUI = styled.div`
@@ -39,13 +37,13 @@ const GridUI = styled.div`
   grid-template-rows: 2fr 2fr;
   grid-gap: 5px;
 
-  @media(max-width: 1000px){
+  @media (max-width: 1000px) {
     display: none;
   }
 `;
 
 const SquareUI = styled.div`
-  border: 2px solid black;
+  
   background: white;
   width: 100%;
   cursor: pointer;
@@ -55,9 +53,12 @@ const SquareUI = styled.div`
   padding: 10px;
   font-weight: 600;
 
+  background: ${props => props.color.primary};
+  border: 2px solid ${props => props.color.secondary};
+
   &:hover {
-    background: black;
-    color: white;
+    background: ${props => props.color.secondary};
+    color: ${props => props.color.primary};
   }
 `;
 
@@ -90,82 +91,82 @@ const BannerUI = styled.div`
   transform: rotate(90deg) translateY(-30vw) translateX(50vw);
   z-index: -1000;
 
-  @media(max-width: 1200px){
-      display: none;
+  @media (max-width: 1200px) {
+    display: none;
   }
 `;
 
 const BannerInnerUI = styled.div`
-  transition: 1s ease;
+
 
   animation: 10s scroll linear infinite;
   -webkit-text-stroke-width: 1px;
   color: white;
-  -webkit-text-stroke-color: black;
-  font-family: 'GeneralSans-Bold';
-
+  -webkit-text-stroke-color: ${props => props.color.secondary};
+  font-family: "GeneralSans-Bold";
+  color: ${props => props.color.primary};
 `;
 
-export default function Header() {
+export default function Header({dark, setDark, color}) {
   const [page, setPage] = useState("home");
   return (
     <HeaderUI>
-      <ContainerUI>
-        <LogoUI onClick={() => setPage('home')}>NXT SNDY</LogoUI>
+      <ContainerUI color={color}>
+        <LogoUI onClick={() => setPage("home")}>NXT SNDY</LogoUI>
 
         <GridUI>
           <SquareUI
-            onClick={() => setPage('archive')}
-            style={{ gridColumn: "1 / span 2", gridRow: "1 / span 2",  }}
+          color={color}
+            className="nav"
+            onClick={() => setPage("archive")}
+            style={{ gridColumn: "1 / span 2", gridRow: "1 / span 2" }}
           >
             archive
           </SquareUI>
-          <SquareUI style={{ gridColumn: "3 / span 2", gridRow: "1 / span 1" }}>
+          <SquareUI 
+          color={color}
+          className="nav"
+          style={{ gridColumn: "3 / span 2", gridRow: "1 / span 1" }}>
             showcase
-          </SquareUI>
+          </SquareUI >
 
-          <SquareUI />
+          <SquareUI color={color} className="nav" onClick={() => setDark(!dark)}/>
 
-          <SquareUI style={{ gridColumn: "6 / span 1", gridRow: "1 / span 2" }}>
+          <SquareUI color={color} className="nav" style={{ gridColumn: "6 / span 1", gridRow: "1 / span 2" }}>
             inspiration
           </SquareUI>
 
-          <SquareUI />
-          <SquareUI />
+          <SquareUI color={color} className="nav" />
+          <SquareUI color={color} className="nav" />
 
-          <SquareUI style={{ gridColumn: "4 / span 2", gridRow: "2 / span 1" }}>
+          <SquareUI color={color} className="nav" style={{ gridColumn: "4 / span 2", gridRow: "2 / span 1" }}>
             get in touch
           </SquareUI>
 
-          <SquareUI style={{ background: "black" }}></SquareUI>
+          <SquareUI color={color} className="nav" style={{ background: "black" }}></SquareUI>
         </GridUI>
       </ContainerUI>
 
       <BannerUI>
         {page === "home" ? (
-          <BannerInnerUI>
+          <BannerInnerUI color={color}>
             NXT SNDY NXT SNDY NXT SNDY NXT SNDY NXT SNDY NXT SNDY NXT SNDY NXT
             SNDY NXT SNDY NXT SNDYNXT SNDY NXT SNDY NXT SNDY NXT SNDY NXT SNDY
             NXT SNDY NXT SNDY NXT SNDYNXT SNDY NXT SNDY NXT SNDY NXT SNDY NXT
-  
           </BannerInnerUI>
         ) : (
           ""
         )}
 
         {page === "archive" ? (
-          <BannerInnerUI>
-          ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE
-          ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE
-          ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE
-         
-         
+          <BannerInnerUI color={color}>
+            ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE
+            ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE
+            ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE
           </BannerInnerUI>
         ) : (
           ""
         )}
-
-
       </BannerUI>
     </HeaderUI>
   );

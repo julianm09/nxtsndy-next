@@ -113,7 +113,7 @@ export default function Loader({loading}) {
     setTimeout(() => {
 
       setBackground(false)
-    }, 3750)
+    }, 2000)
 
 
   }, [])
@@ -132,24 +132,24 @@ export default function Loader({loading}) {
           >
           
           </SquareUI>
-          <SquareUI style={{ gridColumn: "3 / span 2", gridRow: "1 / span 1", animation: '2s blink 0.5s' }}>
+          <SquareUI style={{ gridColumn: "3 / span 2", gridRow: "1 / span 1", animation: '2s blink 0.25s' }}>
           
           </SquareUI>
 
+          <SquareUI style={{animation: '2s blink 0.5s' }} />
+
+          <SquareUI style={{ gridColumn: "6 / span 1", gridRow: "1 / span 2", animation: '2s blink 0.75s' }}>
+           
+          </SquareUI>
+
           <SquareUI style={{animation: '2s blink 1s' }} />
+          <SquareUI style={{animation: '2s blink 1.25s' }} />
 
-          <SquareUI style={{ gridColumn: "6 / span 1", gridRow: "1 / span 2", animation: '2s blink 1.5s' }}>
+          <SquareUI style={{ gridColumn: "4 / span 2", gridRow: "2 / span 1", animation: '2s blink 1.5s' }}>
            
           </SquareUI>
 
-          <SquareUI style={{animation: '2s blink 2s' }} />
-          <SquareUI style={{animation: '2s blink 2.5s' }} />
-
-          <SquareUI style={{ gridColumn: "4 / span 2", gridRow: "2 / span 1", animation: '2s blink 3s' }}>
-           
-          </SquareUI>
-
-          <SquareUI style={{ animation: '2s black 3.5s' }}></SquareUI>
+          <SquareUI style={{ animation: '2s black 1.75s' }}></SquareUI>
         </GridUI>
       </ContainerUI>
 
