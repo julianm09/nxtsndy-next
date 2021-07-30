@@ -198,3 +198,4 @@ Post.getInitialProps = async function (context) {
   return await client.fetch(query, { slug });
 };
 
+Post.displayName = 'Post';
