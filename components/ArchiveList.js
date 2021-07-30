@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useHover } from "../helpers/useHover";
 import { archiveQuery } from "../lib/sanity/archiveQuery";
 import urlFor from "../lib/sanity/urlFor";
+import Image from "next/image";
 
 const ContainerUI = styled.div`
   width: 100%;
@@ -17,17 +18,16 @@ const ContainerUI = styled.div`
 `;
 
 const PostUI = styled.div`
-width: calc(100% / 7 * 4);
+  width: calc(100% / 7 * 4);
 
-display: flex;
-justify-content: flex-start;
-align-items: flex-start;
-`
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+`;
 
 const ImageUI = styled.img`
-width: 50%;
-
-`
+  width: 50%;
+`;
 
 export default function ArchiveList({ archive }) {
   console.log(archive);
@@ -35,12 +35,22 @@ export default function ArchiveList({ archive }) {
   return (
     <ContainerUI>
       {archive.map((p) => (
-        <PostUI key={p._id}>
-          <ImageUI src={urlFor(p.mainImage)} />
-          <Link href={`/archive/${p.slug}`}>
+        <Link href={`/archive/${p.slug}`}>
+          <PostUI key={p._id}>
+
+            { p && 
+            <Image
+              width={500}
+              height={500}
+              objectFit="cover"
+              src="/profile2.jpg"
+     
+            />
+}
+
             <a>{p.title}</a>
-          </Link>
-        </PostUI>
+          </PostUI>
+        </Link>
       ))}
     </ContainerUI>
   );
