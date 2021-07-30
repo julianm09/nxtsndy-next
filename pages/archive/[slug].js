@@ -134,7 +134,8 @@ const ImageUI = styled.div`
   }
 `;
 
-const Post = (props) => {
+
+export default function Post(props) {
   const {
     title = "Missing title",
     name = "Missing name",
