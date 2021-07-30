@@ -17,6 +17,7 @@ export default function ContactForm({dark, setDark, color}) {
 
   return (
     <FormUI>
+        
 
     </FormUI>
   );

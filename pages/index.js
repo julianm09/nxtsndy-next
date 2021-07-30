@@ -200,14 +200,14 @@ export default function Home({ dark, scrollPosition }) {
 
 
         <ContainerUI>
-          <ImageUI style={{top: -scrollPosition / 10 }} src="/profile1.jpg">
+          <ImageUI style={{top: -scrollPosition / 10 }}>
             <img style={{width: '100%'}} src="/profile1.jpg"/>
             <SubHeaderUI >
               Sota Mori 
             </SubHeaderUI>
           </ImageUI>
 
-          <ImageUI style={{top: -scrollPosition / 15 , left: scrollPosition / 10}} src="/profile1.jpg">
+          <ImageUI style={{top: -scrollPosition / 15 , left: scrollPosition / 10}}>
             <img style={{width: '100%'}} src="/profile2.jpg"/>
             <SubHeaderUI >
               Tom Powers

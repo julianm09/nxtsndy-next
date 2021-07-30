@@ -12,7 +12,7 @@ const HeaderUI = styled.div`
   font-weight: 400;
   position: fixed;
   top: 0;
- 
+
   z-index: 100000;
 `;
 
@@ -27,12 +27,10 @@ const ContainerUI = styled.div`
   background: white;
   height: 100vh;
   position: relative;
-transition: 0.5s ease;
-  @media(max-width: 1200px){
+  transition: 0.5s ease;
+  @media (max-width: 1200px) {
     width: 90%;
-}
-
-
+  }
 `;
 
 const GridUI = styled.div`
@@ -42,8 +40,6 @@ const GridUI = styled.div`
   grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
   grid-template-rows: 2fr 2fr;
   grid-gap: 5px;
-
-
 `;
 
 const SquareUI = styled.div`
@@ -56,9 +52,6 @@ const SquareUI = styled.div`
   justify-content: flex-end;
   padding: 10px;
   font-weight: 600;
-
-
-
 `;
 
 const LogoUI = styled.div`
@@ -89,8 +82,6 @@ const BannerUI = styled.div`
   overflow: hidden;
   transform: rotate(90deg) translateY(-30vw) translateX(50vw);
   z-index: -1000;
-
-
 `;
 
 const BannerInnerUI = styled.div`
@@ -100,61 +91,65 @@ const BannerInnerUI = styled.div`
   -webkit-text-stroke-width: 1px;
   color: white;
   -webkit-text-stroke-color: black;
-  font-family: 'GeneralSans-Bold';
-
+  font-family: "GeneralSans-Bold";
 `;
 
-export default function Loader({loading}) {
-
-  const [background, setBackground] = useState(true)
+export default function Loader({ loading }) {
+  const [background, setBackground] = useState(true);
 
   useEffect(() => {
-
     setTimeout(() => {
-
-      setBackground(false)
-    }, 2000)
-
-
-  }, [])
-
+      setBackground(false);
+    }, 2000);
+  }, []);
 
   const [page, setPage] = useState("home");
   return (
-    <HeaderUI style={{display: loading ? 'flex' : 'none'}}>
-      <ContainerUI style={{opacity: background ? '100%' : '0%'}}>
-        <LogoUI style={{opacity: 0}}>NXT SNDY</LogoUI>
+    <HeaderUI style={{ display: loading ? "flex" : "none" }}>
+      <ContainerUI style={{ opacity: background ? "100%" : "0%" }}>
+        <LogoUI style={{ opacity: 0 }}>NXT SNDY</LogoUI>
 
         <GridUI>
           <SquareUI
-            onClick={() => setPage('archive')}
-            style={{ gridColumn: "1 / span 2", gridRow: "1 / span 2", animation: '2s blink'  }}
-          >
-          
-          </SquareUI>
-          <SquareUI style={{ gridColumn: "3 / span 2", gridRow: "1 / span 1", animation: '2s blink 0.25s' }}>
-          
-          </SquareUI>
+            onClick={() => setPage("archive")}
+            style={{
+              gridColumn: "1 / span 2",
+              gridRow: "1 / span 2",
+              animation: "2s blink",
+            }}
+          ></SquareUI>
+          <SquareUI
+            style={{
+              gridColumn: "3 / span 2",
+              gridRow: "1 / span 1",
+              animation: "2s blink 0.25s",
+            }}
+          ></SquareUI>
 
-          <SquareUI style={{animation: '2s blink 0.5s' }} />
+          <SquareUI style={{ animation: "2s blink 0.5s" }} />
 
-          <SquareUI style={{ gridColumn: "6 / span 1", gridRow: "1 / span 2", animation: '2s blink 0.75s' }}>
-           
-          </SquareUI>
+          <SquareUI
+            style={{
+              gridColumn: "6 / span 1",
+              gridRow: "1 / span 2",
+              animation: "2s blink 0.75s",
+            }}
+          ></SquareUI>
 
-          <SquareUI style={{animation: '2s blink 1s' }} />
-          <SquareUI style={{animation: '2s blink 1.25s' }} />
+          <SquareUI style={{ animation: "2s blink 1s" }} />
+          <SquareUI style={{ animation: "2s blink 1.25s" }} />
 
-          <SquareUI style={{ gridColumn: "4 / span 2", gridRow: "2 / span 1", animation: '2s blink 1.5s' }}>
-           
-          </SquareUI>
+          <SquareUI
+            style={{
+              gridColumn: "4 / span 2",
+              gridRow: "2 / span 1",
+              animation: "2s blink 1.5s",
+            }}
+          ></SquareUI>
 
-          <SquareUI style={{ animation: '2s black 1.75s' }}></SquareUI>
+          <SquareUI style={{ animation: "2s black 1.75s" }}></SquareUI>
         </GridUI>
       </ContainerUI>
-
-
-
     </HeaderUI>
   );
 }
