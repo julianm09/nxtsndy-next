@@ -133,7 +133,7 @@ z-index: 1000;
 `;
 
 
-export default function Home({ dark, scrollPosition }) {
+export default function Home({ dark, scrollPosition, color }) {
   const [hover, setHover] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -216,8 +216,8 @@ export default function Home({ dark, scrollPosition }) {
      
         </ContainerUI>
 
-        <ContainerUI>
-<ContactForm/>
+        <ContainerUI style={{top: -scrollPosition / 20 }}>
+<ContactForm color={color} />
      
         </ContainerUI>
       </SectionUI>

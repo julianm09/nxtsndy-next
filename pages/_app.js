@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Header dark={dark} color={color} setDark={setDark} />
-      <Component {...pageProps} dark={dark} scrollPosition={scrollPosition}/>
+      <Component {...pageProps} dark={dark} scrollPosition={scrollPosition} color={color}/>
       <style>{`
         
         body {
