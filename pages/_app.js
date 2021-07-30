@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import "../styles/globals.css";
 import "../styles/normalize.css";
+import useWindowSize from "../helpers/useWindowSize";
 
 function MyApp({ Component, pageProps }) {
   const [dark, setDark] = useState(false);
@@ -40,10 +41,12 @@ function MyApp({ Component, pageProps }) {
     };
   }, []);
 
+  const windowWidth = useWindowSize().width
+
   return (
     <>
       <Header dark={dark} color={color} setDark={setDark} />
-      <Component {...pageProps} dark={dark} scrollPosition={scrollPosition} color={color}/>
+      <Component {...pageProps} dark={dark} scrollPosition={scrollPosition} color={color} windowWidth={windowWidth}/>
       <style>{`
         
         body {

@@ -89,10 +89,22 @@ const InputUI = styled.input`
 
   border-bottom: 1px solid ${props => props.color.secondary};
 
+  @media (max-width: 1300px){
+   
+    width: calc(100% / 7 * 4);
+   
+  }
+
+  @media (max-width: 1200px){
+   
+    width: 100%;
+   
+  }
+
 `;
 
 const ButtonUI = styled.div`
-  width: 25%;
+width: calc(100% / 3 * 1);
 height: 50px;
   display: flex;
   justify-content: center;
@@ -110,9 +122,9 @@ height: 50px;
 
   border: 1px solid ${props => props.color.secondary};
 
-  @media (max-width: 1300px){
+  @media (max-width: 800px){
    
-    width: 100%;
+    width: 50%;
    
   }
 

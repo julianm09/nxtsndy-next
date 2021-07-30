@@ -22,6 +22,8 @@ a {
   box-sizing: border-box;
 }
 
+
+
 @keyframes scroll {
   from {
     transform: translate(100px);

@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
+import Link from 'next/link';
+import { useHover } from "../helpers/useHover";
+import NavSquare from "./NavSquare";
 
 const HeaderUI = styled.div`
   width: 100%;
@@ -51,21 +54,18 @@ const SquareUI = styled.div`
   align-items: flex-end;
   justify-content: flex-end;
   padding: 10px;
-  font-weight: 600;
+  font-weight: 500;
 
   background: ${props => props.color.primary};
-  border: 2px solid ${props => props.color.secondary};
+  border: 1px solid ${props => props.color.secondary};
 
-  &:hover {
-    background: ${props => props.color.secondary};
-    color: ${props => props.color.primary};
-  }
 `;
 
 const LogoUI = styled.div`
   font-size: 60px;
   font-weight: 700;
   font-family: din-condensed, sans-serif;
+  cursor: pointer;
 `;
 
 const CoverUI = styled.div`
@@ -108,47 +108,40 @@ const BannerInnerUI = styled.div`
 `;
 
 export default function Header({dark, setDark, color}) {
-  const [page, setPage] = useState("home");
+  const [page, setPage] = useState("/");
+  const [hoverRef, isHovered] = useHover();
   return (
     <HeaderUI>
       <ContainerUI color={color}>
-        <LogoUI onClick={() => setPage("home")}>NXT SNDY</LogoUI>
+
+      <Link href="/">
+        <LogoUI onClick={() => setPage("/")}>NXT SNDY</LogoUI>
+        </Link>
 
         <GridUI>
-          <SquareUI
-          color={color}
-            className="nav"
-            onClick={() => setPage("archive")}
-            style={{ gridColumn: "1 / span 2", gridRow: "1 / span 2" }}
-          >
-            archive
-          </SquareUI>
-          <SquareUI 
-          color={color}
-          className="nav"
-          style={{ gridColumn: "3 / span 2", gridRow: "1 / span 1" }}>
-            showcase
-          </SquareUI >
+
+        
+        <NavSquare color={color} gridColumn="1 / span 2" gridRow="1 / span 2" link="archive" setPage={setPage} page={page}/>
+         
+         
+        <NavSquare color={color} gridColumn="3 / span 2" gridRow="1 / span 1" link="showcase" setPage={setPage} page={page}/>
+         
 
           <SquareUI color={color} className="nav" onClick={() => setDark(!dark)}/>
 
-          <SquareUI color={color} className="nav" style={{ gridColumn: "6 / span 1", gridRow: "1 / span 2" }}>
-            inspiration
-          </SquareUI>
+          <NavSquare color={color} gridColumn="6 / span 1" gridRow="1 / span 2" link="inspiration" setPage={setPage} page={page}/>
 
           <SquareUI color={color} className="nav" />
           <SquareUI color={color} className="nav" />
 
-          <SquareUI color={color} className="nav" style={{ gridColumn: "4 / span 2", gridRow: "2 / span 1" }}>
-            get in touch
-          </SquareUI>
+          <NavSquare color={color} gridColumn="4 / span 2" gridRow="2 / span 1" link="contact" setPage={setPage} page={page}/>
 
-          <SquareUI color={color} className="nav" style={{ background: "black" }}></SquareUI>
+          <SquareUI color={color} className="nav" />
         </GridUI>
       </ContainerUI>
 
       <BannerUI>
-        {page === "home" ? (
+        {page === "/" ? (
           <BannerInnerUI color={color}>
             NXT SNDY NXT SNDY NXT SNDY NXT SNDY NXT SNDY NXT SNDY NXT SNDY NXT
             SNDY NXT SNDY NXT SNDYNXT SNDY NXT SNDY NXT SNDY NXT SNDY NXT SNDY
@@ -167,6 +160,38 @@ export default function Header({dark, setDark, color}) {
         ) : (
           ""
         )}
+
+{page === "showcase" ? (
+          <BannerInnerUI color={color}>
+            SHOWCASE SHOWCASE SHOWCASE SHOWCASE SHOWCASE SHOWCASE SHOWCASE
+            SHOWCASE SHOWCASE SHOWCASE SHOWCASE SHOWCASE SHOWCASE SHOWCASE
+            SHOWCASE SHOWCASE SHOWCASE SHOWCASE SHOWCASE SHOWCASE SHOWCASE
+          </BannerInnerUI>
+        ) : (
+          ""
+        )}
+
+{page === "contact" ? (
+          <BannerInnerUI color={color}>
+            CONTACT CONTACT CONTACT CONTACT CONTACT CONTACT CONTACT CONTACT
+            CONTACT CONTACT CONTACT CONTACT CONTACT CONTACT CONTACT CONTACT
+            CONTACT CONTACT CONTACT CONTACT CONTACT CONTACT CONTACT CONTACT
+          </BannerInnerUI>
+        ) : (
+          ""
+        )}
+
+{page === "inspiration" ? (
+          <BannerInnerUI color={color}>
+            INSPIRATION INSPIRATION INSPIRATION INSPIRATION INSPIRATION
+            INSPIRATION INSPIRATION INSPIRATION INSPIRATION INSPIRATION
+            INSPIRATION INSPIRATION INSPIRATION INSPIRATION INSPIRATION
+          </BannerInnerUI>
+        ) : (
+          ""
+        )}
+
+
       </BannerUI>
     </HeaderUI>
   );

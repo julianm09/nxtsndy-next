@@ -71,7 +71,7 @@ const ContainerUI = styled.div`
 `;
 
 const TextContainerUI = styled.div`
-  width: calc(100% / 7 * 4);
+  width: 100%;
   flex-direction: column;
 
   @media (max-width: 1200px) {
@@ -129,100 +129,28 @@ const ImageUI = styled.div`
   }
 `;
 
-export default function Home({ dark, scrollPosition, color, windowWidth }) {
+export default function Inspiration({ dark, scrollPosition, color, windowWidth }) {
   const [hover, setHover] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2500);
-  }, []);
-
   return (
     <div>
-{/*       <Loader loading={loading} /> */}
+  
 
       <SectionUI>
         <ContainerUI>
           <TextContainerUI>
             <HeaderUI style={{ top: scrollPosition / 10 }}>
-              We are NXT SNDY, the multidisciplinary duo orchestrating the
-              creative collective. We aim to create what we value through the
-              help of other artists.
+                A history of the evolution of NXT SNDY.
             </HeaderUI>
             <SubHeaderUI style={{ top: scrollPosition / 5 }}>
               Collaboration | Artistry | Longevity
             </SubHeaderUI>
           </TextContainerUI>
 
-          <HologramContainerUI
-            style={{ top: scrollPosition / 2}}
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-          >
-            {dark ? (
-              <>
-                <HologramUI
-                  style={{ opacity: hover ? "0%" : "100%" }}
-                  src="/nxt_hologram_white.gif"
-                />
-                <HologramUI
-                  style={{
-                    transform: "translateX(0px)",
-                    opacity: hover ? "100%" : "0%",
-                  }}
-                  src="/nxt_hologram_colour.gif"
-                />
-              </>
-            ) : (
-              <>
-                <HologramUI
-                  style={{ opacity: hover ? "0%" : "100%" }}
-                  src="/nxt_hologram_black.gif"
-                />
-                <HologramUI
-                  style={{
-                    transform: "translateX(6px) translateY(8px)",
-                    opacity: hover ? "100%" : "0%",
-                  }}
-                  src="/nxt_hologram_colour_white.gif"
-                />
-              </>
-            )}
-          </HologramContainerUI>
+
         </ContainerUI>
 
-        <ContainerUI>
-          <ImageUI style={{ top: -scrollPosition / 10 }}>
-            <Image
-              width={500}
-              height={500}
-              objectFit="cover"
-              src="/profile1.jpg"
-              className="image"
-            />
-            <SubHeaderUI>Sota Mori</SubHeaderUI>
-          </ImageUI>
-
-          <ImageUI
-            style={{ top: -scrollPosition / 15, left: windowWidth < 1000 ? 0 : scrollPosition / 10 }}
-          >
-            <Image
-              width={500}
-              height={500}
-              objectFit="cover"
-              src="/profile2.jpg"
-              className="image"
-              
-            />
-            <SubHeaderUI>Tom Powers</SubHeaderUI>
-          </ImageUI>
-        </ContainerUI>
-
-        <ContainerUI style={{ top: -scrollPosition / 20 }}>
-          <ContactForm color={color} />
-        </ContainerUI>
       </SectionUI>
     </div>
   );
