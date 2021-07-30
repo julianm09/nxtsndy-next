@@ -35,8 +35,8 @@ export default function ArchiveList({ archive }) {
   return (
     <ContainerUI>
       {archive.map((p) => (
-        <Link href={`/archive/${p.slug}`}>
-          <PostUI key={p._id}>
+        <Link key={p._id} href={`/archive/${p.slug}`}>
+          <PostUI >
 
             { p && 
             <img
