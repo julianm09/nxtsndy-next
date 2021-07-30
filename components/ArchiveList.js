@@ -39,11 +39,10 @@ export default function ArchiveList({ archive }) {
           <PostUI key={p._id}>
 
             { p && 
-            <Image
-              width={500}
-              height={500}
+            <img
+          
               objectFit="cover"
-              src="/profile2.jpg"
+              src={urlFor(p.mainImage)}
      
             />
 }
@@ -55,3 +54,4 @@ export default function ArchiveList({ archive }) {
     </ContainerUI>
   );
 }
+

@@ -6,6 +6,7 @@ import urlFor from "../../lib/sanity/urlFor";
 import { archiveQuery } from "../../lib/sanity/archiveQuery";
 import styled from 'styled-components'
 import PortableText from "react-portable-text";
+import Image from "next/image";
 
 
 const SectionUI = styled.div`
@@ -169,7 +170,7 @@ const Post = (props) => {
 
               serializers={{
                 link: (props) => <a target="_blank" style={{ color: "#244468" }} {...props} />,
-                image: (props) => <img style={{ width:'calc(100% / 5 * 3)', boxShadow: '4px 4px 10px grey', margin: '25px 0 0 0' }} src={urlFor(props)} />,
+                image: (props) => <img style={{ width:'calc(100% / 5 * 3)', boxShadow: '4px 4px 10px grey', margin: '25px 0 0 0' }} src={urlFor(props)} placeholder="blur" />,
                 quote: (props) => <p style={{ color:'red', boxShadow: '4px 4px 10px grey', margin: '25px 0 0 0' }} {...props}  />
               }}
             />
