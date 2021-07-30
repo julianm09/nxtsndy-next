@@ -42,7 +42,7 @@ const HologramUI = styled.img`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-z-index: 100;
+  z-index: 100;
   transition: 0.2s ease;
 `;
 
@@ -53,7 +53,6 @@ const ContainerUI = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: row;
-
 
   font-size: 100px;
   position: relative;
@@ -120,18 +119,15 @@ const SubHeaderUI = styled.div`
 `;
 
 const ImageUI = styled.div`
-
   position: relative;
   transition: 1s ease;
-display: flex;
-flex-direction: column;
-z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
   @media (max-width: 1200px) {
     width: 100%;
- 
   }
 `;
-
 
 export default function Home({ dark, scrollPosition, color }) {
   const [hover, setHover] = useState(false);
@@ -161,7 +157,7 @@ export default function Home({ dark, scrollPosition, color }) {
           </TextContainerUI>
 
           <HologramContainerUI
-            style={{ top: scrollPosition / 2 }}
+            style={{ top: scrollPosition / 2}}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
           >
@@ -197,28 +193,32 @@ export default function Home({ dark, scrollPosition, color }) {
           </HologramContainerUI>
         </ContainerUI>
 
-
-
         <ContainerUI>
-          <ImageUI style={{top: -scrollPosition / 10 }}>
-            <Image width={500} height={500} objectFit='cover' src="/profile1.jpg"/>
-            <SubHeaderUI >
-              Sota Mori 
-            </SubHeaderUI>
+          <ImageUI style={{ top: -scrollPosition / 10 }}>
+            <Image
+              width={500}
+              height={500}
+              objectFit="cover"
+              src="/profile1.jpg"
+            />
+            <SubHeaderUI>Sota Mori</SubHeaderUI>
           </ImageUI>
 
-          <ImageUI style={{top: -scrollPosition / 15 , left: scrollPosition / 10}}>
-            <Image   width={500} height={500} objectFit='cover' src="/profile2.jpg"/>
-            <SubHeaderUI >
-              Tom Powers
-            </SubHeaderUI>
+          <ImageUI
+            style={{ top: -scrollPosition / 15, left: scrollPosition / 10 }}
+          >
+            <Image
+              width={500}
+              height={500}
+              objectFit="cover"
+              src="/profile2.jpg"
+            />
+            <SubHeaderUI>Tom Powers</SubHeaderUI>
           </ImageUI>
-     
         </ContainerUI>
 
-        <ContainerUI style={{top: -scrollPosition / 20 }}>
-<ContactForm color={color} />
-     
+        <ContainerUI style={{ top: -scrollPosition / 20 }}>
+          <ContactForm color={color} />
         </ContainerUI>
       </SectionUI>
     </div>

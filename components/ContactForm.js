@@ -83,11 +83,38 @@ const InputUI = styled.input`
   outline: none;
   border-bottom: 1px solid black;
 
-  background: ${props => props.color.primary};
+  background: transparent;
 
   color: ${props => props.color.secondary};
 
   border-bottom: 1px solid ${props => props.color.secondary};
+
+`;
+
+const ButtonUI = styled.div`
+  width: 25%;
+height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 25px 0 50px 0;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+
+  background: ${props => props.color.primary};
+
+  color: ${props => props.color.secondary};
+
+  border: 1px solid ${props => props.color.secondary};
+
+  @media (max-width: 1300px){
+   
+    width: 100%;
+   
+  }
 
 `;
 
@@ -112,6 +139,8 @@ export default function ContactForm({ dark, setDark, color }) {
         <LabelUI>Your Message</LabelUI>
 
         <InputUI color={color}/>
+
+        <ButtonUI  color={color}> Send</ButtonUI>
       </FormUI>
     </ContainerUI>
   );
