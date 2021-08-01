@@ -31,7 +31,7 @@ const ContainerUI = styled.div`
   }
 
   @media (max-width: 500px) {
-    transition: 0s ease;
+    transition: 0.5s ease;
   }
 
 

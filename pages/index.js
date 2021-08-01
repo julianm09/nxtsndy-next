@@ -36,7 +36,7 @@ const HologramContainerUI = styled.div`
   }
 
   @media (max-width: 500px) {
-    transition: 0s ease;
+    transition: 0.5s ease;
   }
 c
 `;
@@ -78,7 +78,7 @@ const ContainerUI = styled.div`
   }
 
   @media (max-width: 500px) {
-    transition: 0s ease;
+    transition: 0.5s ease;
   }
 
   
@@ -112,7 +112,7 @@ const HeaderUI = styled.div`
   }
 
   @media (max-width: 500px) {
-    transition: 0s ease;
+    transition: 0.5s ease;
   }
 `;
 
@@ -136,7 +136,7 @@ const SubHeaderUI = styled.div`
   }
 
   @media (max-width: 500px) {
-    transition: 0s ease;
+    transition: 0.5s ease;
   }
 `;
 
@@ -151,7 +151,7 @@ const ImageUI = styled.div`
   }
 
   @media (max-width: 500px) {
-    transition: 0s ease;
+    transition: 0.5s ease;
   }
 `;
 
