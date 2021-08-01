@@ -257,7 +257,7 @@ export default function Archive({ dark, scrollPosition, color, windowWidth, arch
         </ContainerUI>
 
    
-   <ContainerUI style={{top: -scrollPosition / 5}}>
+   <ContainerUI style={{top: windowWidth < 500 ? 0 : -scrollPosition / 5 }}>
 
    <GridUI >
       {archive && archive.map((p) => (
