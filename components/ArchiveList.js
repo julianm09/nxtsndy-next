@@ -30,6 +30,11 @@ const ContainerUI = styled.div`
     grid-template-columns: 2fr;
   }
 
+  @media (max-width: 500px) {
+    transition: 0s ease;
+  }
+
+
 `;
 
 

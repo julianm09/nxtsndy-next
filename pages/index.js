@@ -32,7 +32,13 @@ const HologramContainerUI = styled.div`
 
   @media (max-width: 800px) {
     width: 100%;
+ 
   }
+
+  @media (max-width: 500px) {
+    transition: 0s ease;
+  }
+c
 `;
 
 const HologramUI = styled.img`
@@ -44,6 +50,8 @@ const HologramUI = styled.img`
   flex-direction: column;
   z-index: 100;
   transition: 0.2s ease;
+
+
 `;
 
 const ContainerUI = styled.div`
@@ -68,6 +76,12 @@ const ContainerUI = styled.div`
   @media (max-width: 1000px) {
     flex-direction: column;
   }
+
+  @media (max-width: 500px) {
+    transition: 0s ease;
+  }
+
+  
 `;
 
 const TextContainerUI = styled.div`
@@ -96,6 +110,10 @@ const HeaderUI = styled.div`
   @media (max-width: 1200px) {
     font-size: 36px;
   }
+
+  @media (max-width: 500px) {
+    transition: 0s ease;
+  }
 `;
 
 const SubHeaderUI = styled.div`
@@ -116,6 +134,10 @@ const SubHeaderUI = styled.div`
   @media (max-width: 1200px) {
     width: 100%;
   }
+
+  @media (max-width: 500px) {
+    transition: 0s ease;
+  }
 `;
 
 const ImageUI = styled.div`
@@ -126,6 +148,10 @@ const ImageUI = styled.div`
   z-index: 1000;
   @media (max-width: 1200px) {
     width: 100%;
+  }
+
+  @media (max-width: 500px) {
+    transition: 0s ease;
   }
 `;
 
