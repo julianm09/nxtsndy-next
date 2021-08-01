@@ -122,7 +122,7 @@ export default function ShowcaseList({ showcase, scrollPosition, color }) {
   console.log(showcase);
 
   return (
-    <ContainerUI style={{top: -scrollPosition / 5}}>
+    <ContainerUI>
       {showcase && showcase.map((p) => (
                   <Link key={p._id} href={`/showcase/${p.slug}`}>
 

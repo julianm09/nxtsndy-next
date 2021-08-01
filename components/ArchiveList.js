@@ -126,7 +126,7 @@ export default function ArchiveList({ archive, scrollPosition, color }) {
   console.log(archive);
 
   return (
-    <ContainerUI style={{top: -scrollPosition / 5}}>
+    <ContainerUI>
       {archive && archive.map((p) => (
                   <Link key={p._id} href={`/archive/${p.slug}`}>
 
