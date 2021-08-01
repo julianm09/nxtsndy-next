@@ -138,17 +138,11 @@ export default function Contact({ dark, scrollPosition, color, windowWidth }) {
   
 
       <SectionUI>
+
+
         <ContainerUI>
-          <TextContainerUI>
-            <HeaderUI style={{ top: scrollPosition / 10 }}>
-                A history of the evolution of NXT SNDY.
-            </HeaderUI>
-            <SubHeaderUI style={{ top: scrollPosition / 5 }}>
-              Collaboration | Artistry | Longevity
-            </SubHeaderUI>
-          </TextContainerUI>
 
-
+<ContactForm color={color}/>
         </ContainerUI>
 
       </SectionUI>

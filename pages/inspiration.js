@@ -104,7 +104,7 @@ const SubHeaderUI = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-
+  opacity: 50%;
   position: relative;
   transition: 1s ease;
 
@@ -141,10 +141,10 @@ export default function Inspiration({ dark, scrollPosition, color, windowWidth }
         <ContainerUI>
           <TextContainerUI>
             <HeaderUI style={{ top: scrollPosition / 10 }}>
-                A history of the evolution of NXT SNDY.
+            A tribute to the things that made us.
             </HeaderUI>
             <SubHeaderUI style={{ top: scrollPosition / 5 }}>
-              Collaboration | Artistry | Longevity
+              Artistry
             </SubHeaderUI>
           </TextContainerUI>
 

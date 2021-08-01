@@ -75,8 +75,9 @@ const ContainerUI = styled.div`
 `;
 
 const TextContainerUI = styled.div`
-  width: 100%;
+  width: calc(100% / 7 * 5);
   flex-direction: column;
+
 
   @media (max-width: 1200px) {
     width: 100%;
@@ -108,7 +109,7 @@ const SubHeaderUI = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-
+  opacity: 50%;
   position: relative;
   transition: 1s ease;
 
@@ -150,7 +151,7 @@ export default function Archive({ dark, scrollPosition, color, windowWidth, arch
                 A history of the evolution of NXT SNDY.
             </HeaderUI>
             <SubHeaderUI style={{ top: scrollPosition / 5 }}>
-              Collaboration | Artistry | Longevity
+              Longevity
             </SubHeaderUI>
           </TextContainerUI>
 
@@ -158,9 +159,12 @@ export default function Archive({ dark, scrollPosition, color, windowWidth, arch
         </ContainerUI>
 
         <ContainerUI>
+   
 
-        <ArchiveList archive={archive} />
+        <ArchiveList archive={archive} scrollPosition={scrollPosition} color={color}/>
 
+
+       
         </ContainerUI>
 
      

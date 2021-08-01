@@ -134,14 +134,17 @@ export default function Home({ dark, scrollPosition, color, windowWidth }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    document.body.style.overflow="hidden"
     setTimeout(() => {
+      document.body.style.overflow="auto"
       setLoading(false);
+      
     }, 2500);
   }, []);
 
   return (
     <div>
-{/*       <Loader loading={loading} /> */}
+      <Loader loading={loading} />
 
       <SectionUI>
         <ContainerUI>
@@ -195,10 +198,9 @@ export default function Home({ dark, scrollPosition, color, windowWidth }) {
 
         <ContainerUI>
           <ImageUI style={{ top: -scrollPosition / 10 }}>
-            <Image
-              width={500}
-              height={500}
-              objectFit="cover"
+            <img
+             
+                  style={{width: '100%'}}
               src="/profile1.jpg"
               className="image"
             />
@@ -208,10 +210,8 @@ export default function Home({ dark, scrollPosition, color, windowWidth }) {
           <ImageUI
             style={{ top: -scrollPosition / 15, left: windowWidth < 1000 ? 0 : scrollPosition / 10 }}
           >
-            <Image
-              width={500}
-              height={500}
-              objectFit="cover"
+            <img
+          style={{width: '100%'}}
               src="/profile2.jpg"
               className="image"
               

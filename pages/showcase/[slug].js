@@ -8,7 +8,6 @@ import styled from 'styled-components'
 import PortableText from "react-portable-text";
 import Image from "next/image";
 
-
 const SectionUI = styled.div`
   width: 100%;
   display: flex;
@@ -245,7 +244,7 @@ export default function Post(props) {
   );
 };
 
-const query = groq`*[_type == "archive" && slug.current == $slug][0]{
+const query = groq`*[_type == "showcase" && slug.current == $slug][0]{
   title,
   mainImage,
   "name": author->name,

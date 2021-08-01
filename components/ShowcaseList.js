@@ -6,9 +6,10 @@ import { archiveQuery } from "../lib/sanity/archiveQuery";
 import urlFor from "../lib/sanity/urlFor";
 import Image from "next/image";
 import PortableText from "react-portable-text";
+
 const ContainerUI = styled.div`
   display: grid;
-  grid-template-columns: 2fr 2fr ;
+  grid-template-columns: 2fr 2fr 2fr;
   grid-gap: 10px;
   position: relative;
 
@@ -23,7 +24,7 @@ const ContainerUI = styled.div`
 
   @media (max-width: 1200px) {
     width: 100%;
-    grid-template-columns: 2fr;
+    grid-template-columns: 2fr 2fr;
   }
 
   @media (max-width: 800px) {
@@ -117,13 +118,13 @@ cursor: pointer;
 
 
 
-export default function ArchiveList({ archive, scrollPosition, color }) {
-  console.log(archive);
+export default function ShowcaseList({ showcase, scrollPosition, color }) {
+  console.log(showcase);
 
   return (
     <ContainerUI style={{top: -scrollPosition / 5}}>
-      {archive && archive.map((p) => (
-                  <Link key={p._id} href={`/archive/${p.slug}`}>
+      {showcase && showcase.map((p) => (
+                  <Link key={p._id} href={`/showcase/${p.slug}`}>
 
               
 

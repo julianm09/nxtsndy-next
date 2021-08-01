@@ -5,6 +5,9 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import Loader from "../components/Loader";
 import ContactForm from "../components/ContactForm";
+import ShowcaseList from "../components/ShowcaseList";
+import {showcaseQuery} from '../lib/sanity/showcaseQuery'
+import { client } from "../lib/sanity/client";
 
 const SectionUI = styled.div`
   width: 100%;
@@ -71,7 +74,8 @@ const ContainerUI = styled.div`
 `;
 
 const TextContainerUI = styled.div`
-  width: 100%;
+width: calc(100% / 7 * 5);
+
   flex-direction: column;
 
   @media (max-width: 1200px) {
@@ -107,7 +111,7 @@ const SubHeaderUI = styled.div`
 
   position: relative;
   transition: 1s ease;
-
+  opacity: 50%;
   font-size: 16px;
   font-weight: 400;
   z-index: 100;
@@ -117,6 +121,8 @@ const SubHeaderUI = styled.div`
     width: 100%;
   }
 `;
+
+
 
 const ImageUI = styled.div`
   position: relative;
@@ -129,29 +135,59 @@ const ImageUI = styled.div`
   }
 `;
 
-export default function Showcase({ dark, scrollPosition, color, windowWidth }) {
+export default function Showcase({ dark, scrollPosition, color, windowWidth, showcase }) {
   const [hover, setHover] = useState(false);
   const [loading, setLoading] = useState(true);
+
+  console.log(showcase)
 
   return (
     <div>
   
 
-      <SectionUI>
+  <SectionUI>
         <ContainerUI>
           <TextContainerUI>
             <HeaderUI style={{ top: scrollPosition / 10 }}>
-                A history of the evolution of NXT SNDY.
+            A collection born from collaborations.
             </HeaderUI>
             <SubHeaderUI style={{ top: scrollPosition / 5 }}>
-              Collaboration | Artistry | Longevity
+              Collaboration
             </SubHeaderUI>
           </TextContainerUI>
 
 
         </ContainerUI>
 
+        <ContainerUI>
+      
+
+        <ShowcaseList color={color} showcase={showcase} scrollPosition={scrollPosition}/>
+
+
+    
+        </ContainerUI>
+
+     
+
+     
+
       </SectionUI>
+
     </div>
   );
+}
+
+
+export async function getStaticProps({ params }) {
+  const showcase = await client.fetch(showcaseQuery);
+
+
+
+  return {
+    props: {
+      showcase,
+
+    },
+  };
 }

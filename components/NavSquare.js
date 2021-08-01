@@ -117,7 +117,7 @@ export default function NavSquare({
   setPage,
   page,
 }) {
-  console.log(page);
+  
   const [hoverRef, isHovered] = useHover();
   
   return (

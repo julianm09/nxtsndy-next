@@ -17,7 +17,7 @@ const HeaderUI = styled.div`
 `;
 
 const ContainerUI = styled.div`
-  padding: 100px 0 0 0;
+  padding: 50px 0 0 0;
   width: 70%;
   height: 100%;
   display: flex;
@@ -35,7 +35,7 @@ const ContainerUI = styled.div`
 
 const GridUI = styled.div`
   width: 100%;
-  height: 250px;
+  height: 15vw;
   display: grid;
   grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
   grid-template-rows: 2fr 2fr;

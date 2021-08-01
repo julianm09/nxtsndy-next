@@ -45,7 +45,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <Header dark={dark} color={color} setDark={setDark} />
+      <Header dark={dark} color={color} setDark={setDark} windowWidth={windowWidth}/>
       <Component {...pageProps} dark={dark} scrollPosition={scrollPosition} color={color} windowWidth={windowWidth}/>
       <style>{`
         
