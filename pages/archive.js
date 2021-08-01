@@ -42,7 +42,7 @@ const HologramContainerUI = styled.div`
   }
 
   @media (max-width: 500px) {
-    transition: 0.5s ease;
+    transition: 0s ease;
   }
 
 `;
@@ -82,7 +82,7 @@ const ContainerUI = styled.div`
   }
 
   @media (max-width: 500px) {
-    transition: 0.5s ease;
+    transition: 0s ease;
   }
 
 `;
@@ -116,7 +116,7 @@ const HeaderUI = styled.div`
   }
 
   @media (max-width: 500px) {
-    transition: 0.5s ease;
+    transition: 0s ease;
   }
 
 `;
@@ -141,7 +141,7 @@ const SubHeaderUI = styled.div`
   }
 
   @media (max-width: 500px) {
-    transition: 0.5s ease;
+    transition: 0s ease;
   }
 
 `;
@@ -196,7 +196,7 @@ cursor: pointer;
 
           background: ${props => props.color.primary};
   z-index: 1000;
-  transition: 1s ease;
+  transition: 0.5s ease;
   
 `;
 
@@ -226,7 +226,7 @@ const GridUI = styled.div`
   }
 
   @media (max-width: 500px) {
-    transition: 0.5s ease;
+    transition: 0s ease;
   }
 
 
@@ -257,9 +257,9 @@ export default function Archive({ dark, scrollPosition, color, windowWidth, arch
         </ContainerUI>
 
    
-   <ContainerUI>
+   <ContainerUI style={{top: -scrollPosition / 5}}>
 
-   <GridUI style={{top: -scrollPosition / 5}}>
+   <GridUI >
       {archive && archive.map((p) => (
                   <Link key={p._id} href={`/archive/${p.slug}`}>
 
