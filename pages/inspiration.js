@@ -5,6 +5,9 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import Loader from "../components/Loader";
 import ContactForm from "../components/ContactForm";
+import InspirationList from "../components/InspirationList";
+import {inspirationQuery} from '../lib/sanity/inspirationQuery'
+import { client } from "../lib/sanity/client";
 
 const SectionUI = styled.div`
   width: 100%;
@@ -129,7 +132,7 @@ const ImageUI = styled.div`
   }
 `;
 
-export default function Inspiration({ dark, scrollPosition, color, windowWidth }) {
+export default function Inspiration({ dark, scrollPosition, color, windowWidth, inspiration }) {
   const [hover, setHover] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -150,8 +153,26 @@ export default function Inspiration({ dark, scrollPosition, color, windowWidth }
 
 
         </ContainerUI>
+        <ContainerUI>
+        <InspirationList color={color} inspiration={inspiration}/>
+
+        </ContainerUI>
 
       </SectionUI>
     </div>
   );
+}
+
+
+export async function getStaticProps({ params }) {
+  const inspiration = await client.fetch(inspirationQuery);
+
+
+
+  return {
+    props: {
+      inspiration,
+
+    },
+  };
 }
