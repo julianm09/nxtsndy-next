@@ -58,6 +58,8 @@ export default function MusicPlayer({ dark, setDark, color, windowWidth }) {
 
     setPlaySong("/" + tracks[song] + ".wav")
 
+    console.log(document.getElementById("player"))
+
   },[song])
 
   return (
