@@ -91,7 +91,7 @@ export default function MusicPlayer({ dark, setDark, color, windowWidth }) {
       </RowUI>
 
       <audio id="player">
-        <source src={"/" + tracks[song] + ".wav"} type="audio/wav" />
+        <source src={"/caleb klager - flicker.wav"} type="audio/wav" />
         Your browser does not support the audio tag.
       </audio>
 
