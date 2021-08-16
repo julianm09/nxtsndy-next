@@ -48,9 +48,17 @@ const tracks = [
 ];
 
 export default function MusicPlayer({ dark, setDark, color, windowWidth }) {
-  const [playing, setPlaying] = useState(false);
 
+  const [playing, setPlaying] = useState(false);
   const [song, setSong] = useState(0);
+  
+  let [playSong, setPlaySong] = useState("/caleb klager - flicker.wav")
+
+  useEffect(() => {
+
+    setPlaySong("/" + tracks[song] + ".wav")
+
+  },[song])
 
   return (
     <SquareUI color={color} className="nav">
@@ -85,13 +93,13 @@ export default function MusicPlayer({ dark, setDark, color, windowWidth }) {
             song < 6 ? setSong(song + 1) : setSong(0);
             document.getElementById("player").load();
             document.getElementById("player").play();
-            setPlaying(true);
+            setPlaying(true)
           }}
         />
       </RowUI>
 
       <audio id="player">
-        <source src={"/caleb klager - flicker.wav"} type="audio/wav" />
+        <source src={playSong} type="audio/wav" />
         Your browser does not support the audio tag.
       </audio>
 
