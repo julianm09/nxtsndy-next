@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useHover } from "../helpers/useHover";
 import NavSquare from "./NavSquare";
 import { Menu, X, Instagram} from "react-feather";
+import MusicPlayer from "./MusicPlayer";
 
 const HeaderUI = styled.div`
   width: 100%;
@@ -247,7 +248,7 @@ export default function Header({ dark, setDark, color, windowWidth }) {
             page={page}
           />
 
-          <SquareUI color={color} className="nav" />
+<MusicPlayer color={color}/>
           <SquareUI color={color} className="nav" />
 
           <NavSquare
