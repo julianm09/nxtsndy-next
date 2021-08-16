@@ -38,7 +38,7 @@ const TrackNameUI = styled.a`
 `;
 
 const tracks = [
-  "caleb-klager-flicker",
+  "caleb klager - flicker",
   "caleb klager - interference",
   "caleb klager - visions",
   "caleb klager - waking",
@@ -52,15 +52,7 @@ export default function MusicPlayer({ dark, setDark, color, windowWidth }) {
   const [playing, setPlaying] = useState(false);
   const [song, setSong] = useState(0);
   
-  let [playSong, setPlaySong] = useState("/caleb klager - flicker.wav")
-
-  useEffect(() => {
-
-    setPlaySong("/" + tracks[song] + ".wav")
-
-    console.log(document.getElementById("player"))
-
-  },[song])
+  let [playSong, setPlaySong] = useState("/" + tracks[song] + ".wav")
 
   return (
     <SquareUI color={color} className="nav">
@@ -100,8 +92,8 @@ export default function MusicPlayer({ dark, setDark, color, windowWidth }) {
         />
       </RowUI>
 
-      <audio id="player">
-        <source src={playSong} type="audio/wav" />
+      <audio style={{width: '100%'}} controls id="player">
+        <source src={"/" + tracks[song] + ".wav"} type="audio/wav" />
         Your browser does not support the audio tag.
       </audio>
 
