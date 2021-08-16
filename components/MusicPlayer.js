@@ -85,6 +85,7 @@ export default function MusicPlayer({ dark, setDark, color, windowWidth }) {
             song < 6 ? setSong(song + 1) : setSong(0);
             document.getElementById("player").load();
             document.getElementById("player").play();
+            setPlaying(true);
           }}
         />
       </RowUI>
