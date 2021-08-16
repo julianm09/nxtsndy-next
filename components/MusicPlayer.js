@@ -38,7 +38,7 @@ const TrackNameUI = styled.a`
 `;
 
 const tracks = [
-  "caleb klager - flicker",
+  "caleb-klager-flicker",
   "caleb klager - interference",
   "caleb klager - visions",
   "caleb klager - waking",
