@@ -34,6 +34,16 @@ a {
   }
 }
 
+@keyframes scroll-track {
+  from {
+    transform: translate(200px);
+  }
+
+  to {
+    transform: translate(-200px);
+  }
+}
+
 
 @keyframes blink {
   from {
