@@ -38,14 +38,36 @@ const TrackNameUI = styled.a`
   animation: scroll-track 8s linear infinite;
 `;
 
+
 const tracks = [
-  "caleb klager - flicker",
-  "caleb klager - interference",
-  "caleb klager - visions",
-  "caleb klager - waking",
-  "caleb klager - memory type",
-  "caleb klager -  hologram",
-  "caleb klager - sunday's light",
+  {
+    url: "https://media.githubusercontent.com/media/julianmayes/nxtsndy-next/main/public/caleb%20klager%20-%20flicker.wav",
+    title: "Caleb Klager - flicker",
+  },
+  {
+    url: "https://media.githubusercontent.com/media/julianmayes/nxtsndy-next/main/public/caleb%20klager%20-%20interference.wav",
+    title: "Caleb Klager - interference",
+  },
+  {
+    url: "https://media.githubusercontent.com/media/julianmayes/nxtsndy-next/main/public/caleb%20klager%20-%20visions.wav",
+    title: "Caleb Klager - visions",
+  },
+  {
+    url: "https://media.githubusercontent.com/media/julianmayes/nxtsndy-next/main/public/caleb%20klager%20-%20waking.wav",
+    title: "Caleb Klager - waking",
+  },
+  {
+    url: "https://media.githubusercontent.com/media/julianmayes/nxtsndy-next/main/public/caleb%20klager%20-%20memory%20type.wav",
+    title: "Caleb Klager - memory type",
+  },
+  {
+    url: "https://media.githubusercontent.com/media/julianmayes/nxtsndy-next/main/public/caleb%20klager%20-%20%20hologram.wav",
+    title: "Caleb Klager - hologram",
+  },
+  {
+    url: "https://media.githubusercontent.com/media/julianmayes/nxtsndy-next/main/public/caleb%20klager%20-%20sunday's%20light.wav",
+    title: "Caleb Klager - sunday's light",
+  },
 ];
 
 export default function MusicPlayer({ dark, setDark, color, windowWidth }) {
@@ -94,12 +116,12 @@ export default function MusicPlayer({ dark, setDark, color, windowWidth }) {
       </RowUI>
 
       <audio style={{width: '100%'}} id="player">
-        <source src={"https://media.githubusercontent.com/media/julianmayes/nxtsndy-next/main/public/caleb%20klager%20-%20flicker.wav"} type="audio/wav" />
+        <source src={tracks[song].url} type="audio/wav" />
         Your browser does not support the audio tag.
       </audio>
 
       <TrackNameUI target="_blank" href="https://linktr.ee/klagbass">
-        {tracks[song]}
+        {tracks[song].title}
       </TrackNameUI>
     </SquareUI>
   );
