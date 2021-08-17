@@ -17,9 +17,12 @@ const SquareUI = styled.div`
   justify-content: center;
   padding: 10px;
   font-weight: 500;
-
   background: ${(props) => props.color.primary};
   border: 1px solid ${(props) => props.color.secondary};
+
+  @media (max-width: 1000px) {
+    height: 150px;
+  }
 `;
 
 const RowUI = styled.div`

@@ -211,6 +211,8 @@ export default function Header({ dark, setDark, color, windowWidth }) {
             <MobileSquareUI color={color}><Instagram/></MobileSquareUI>
           </Link>
 
+          <MusicPlayer color={color}/>
+
 
         </MobileMenuUI>
 
