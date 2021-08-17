@@ -4,8 +4,7 @@ import Link from "next/link";
 import { useHover } from "../helpers/useHover";
 import NavSquare from "./NavSquare";
 import { Play, FastForward, Rewind, Pause } from "react-feather";
-
-
+import Flicker from '../assets/caleb klager - flicker.wav';
 
 const SquareUI = styled.div`
   background: white;
@@ -95,7 +94,7 @@ export default function MusicPlayer({ dark, setDark, color, windowWidth }) {
       </RowUI>
 
       <audio style={{width: '100%'}} controls id="player">
-        <source src={"/" + tracks[song] + ".wav"} type="audio/wav" />
+        <source src={Flicker} type="audio/wav" />
         Your browser does not support the audio tag.
       </audio>
 
