@@ -3,7 +3,7 @@ module.exports = {
 
   webpack(config, options) {
     config.module.rules.push({
-      test: /\.wav$/,
+      test: /\.mp3$/,
       use: {
         loader: 'file-loader',
       },
