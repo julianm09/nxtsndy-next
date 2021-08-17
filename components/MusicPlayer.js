@@ -94,7 +94,7 @@ export default function MusicPlayer({ dark, setDark, color, windowWidth }) {
       </RowUI>
 
       <audio style={{width: '100%'}} id="player">
-        <source src={"/" + tracks[song] + ".wav"} type="audio/wav" />
+        <source src={"https://media.githubusercontent.com/media/julianmayes/nxtsndy-next/main/public/caleb%20klager%20-%20flicker.wav"} type="audio/wav" />
         Your browser does not support the audio tag.
       </audio>
 
