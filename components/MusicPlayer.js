@@ -77,9 +77,14 @@ export default function MusicPlayer({ dark, setDark, color, windowWidth }) {
 
   const [playing, setPlaying] = useState(false);
   const [song, setSong] = useState(0);
-  
-  let [playSong, setPlaySong] = useState("/" + tracks[song] + ".wav")
 
+  const [songPlaying, setSongPlaying] = useState(tracks[0]);
+
+  useEffect(() => {
+    setSongPlaying(tracks[song])
+
+  }, [song])
+  
   return (
     <SquareUI color={color} className="nav">
       <RowUI>
@@ -111,15 +116,20 @@ export default function MusicPlayer({ dark, setDark, color, windowWidth }) {
         <FastForward
           onClick={() => {
             song < 6 ? setSong(song + 1) : setSong(0);
+          
+            console.log(tracks[song].url)
+    
             document.getElementById("player").load();
+  
             document.getElementById("player").play();
+
             setPlaying(true)
           }}
         />
       </RowUI>
 
       <audio style={{width: '100%'}} id="player">
-        <source src={tracks[song].url} type="audio/wav" />
+        <source src={"https://media.githubusercontent.com/media/julianmayes/nxtsndy-next/main/public/caleb%20klager%20-%20flicker.wav"} type="audio/wav" />
         Your browser does not support the audio tag.
       </audio>
 
