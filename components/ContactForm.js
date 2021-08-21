@@ -71,6 +71,8 @@ const LabelUI = styled.div`
 `;
 
 const InputUI = styled.input`
+border-radius: 0;
+-webkit-appearance: none;
   width: 100%;
   padding: 50px 0 10px 0;
   display: flex;
