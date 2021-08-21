@@ -170,7 +170,7 @@ export default function Home({ dark, scrollPosition, color, windowWidth }) {
 
   return (
     <div>
-      <Loader loading={loading} />
+      <Loader loading={loading} dark={dark} color={color} />
 
       <SectionUI>
         <ContainerUI>

@@ -12,7 +12,7 @@ const HeaderUI = styled.div`
   font-weight: 400;
   position: fixed;
   top: 0;
-
+  background: ${(props) => props.color};
   z-index: 100000;
 `;
 
@@ -94,18 +94,18 @@ const BannerInnerUI = styled.div`
   font-family: "GeneralSans-Bold";
 `;
 
-export default function Loader({ loading }) {
+export default function Loader({ loading, color, dark }) {
   const [background, setBackground] = useState(true);
 
-  useEffect(() => {
+/*   useEffect(() => {
     setTimeout(() => {
       setBackground(false);
     }, 2000);
-  }, []);
+  }, []); */
 
   const [page, setPage] = useState("home");
   return (
-    <HeaderUI style={{ display: loading ? "flex" : "none" }}>
+    <HeaderUI color={dark ? color.secondary : color.primary} style={{ display: loading ? "flex" : "none" }}>
       <ContainerUI style={{ opacity: background ? "100%" : "0%" }}>
         <LogoUI style={{ opacity: 0 }}>NXT SNDY</LogoUI>
 
