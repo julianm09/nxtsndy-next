@@ -5,7 +5,6 @@ import { useHover } from "../helpers/useHover";
 import NavSquare from "./NavSquare";
 import { Play, FastForward, Rewind, Pause } from "react-feather";
 
-
 const SquareUI = styled.div`
   background: white;
   width: 100%;
@@ -41,63 +40,106 @@ const TrackNameUI = styled.a`
   animation: scroll-track 8s linear infinite;
 `;
 
-
 const tracks = [
   {
-    url: "https://media.githubusercontent.com/media/julianmayes/nxtsndy-next/main/public/caleb%20klager%20-%20flicker.wav",
+    url: "https://nxt-sndy.s3.us-east-2.amazonaws.com/caleb+klager+-+flicker.wav",
     title: "Caleb Klager - flicker",
   },
   {
-    url: "https://media.githubusercontent.com/media/julianmayes/nxtsndy-next/main/public/caleb%20klager%20-%20interference.wav",
+    url: "https://nxt-sndy.s3.us-east-2.amazonaws.com/caleb+klager+-+interference.wav",
     title: "Caleb Klager - interference",
   },
   {
-    url: "https://media.githubusercontent.com/media/julianmayes/nxtsndy-next/main/public/caleb%20klager%20-%20visions.wav",
+    url: "https://nxt-sndy.s3.us-east-2.amazonaws.com/caleb+klager+-+visions.wav",
     title: "Caleb Klager - visions",
   },
   {
-    url: "https://media.githubusercontent.com/media/julianmayes/nxtsndy-next/main/public/caleb%20klager%20-%20waking.wav",
+    url: "https://nxt-sndy.s3.us-east-2.amazonaws.com/caleb+klager+-+waking.wav",
     title: "Caleb Klager - waking",
   },
   {
-    url: "https://media.githubusercontent.com/media/julianmayes/nxtsndy-next/main/public/caleb%20klager%20-%20memory%20type.wav",
+    url: "https://nxt-sndy.s3.us-east-2.amazonaws.com/caleb+klager+-+memory+type.wav",
     title: "Caleb Klager - memory type",
   },
   {
-    url: "https://media.githubusercontent.com/media/julianmayes/nxtsndy-next/main/public/caleb%20klager%20-%20%20hologram.wav",
+    url: "https://nxt-sndy.s3.us-east-2.amazonaws.com/caleb+klager+-++hologram.wav",
     title: "Caleb Klager - hologram",
   },
   {
-    url: "https://media.githubusercontent.com/media/julianmayes/nxtsndy-next/main/public/caleb%20klager%20-%20sunday's%20light.wav",
+    url: "https://nxt-sndy.s3.us-east-2.amazonaws.com/caleb+klager+-+sunday's+light.wav",
     title: "Caleb Klager - sunday's light",
   },
 ];
 
 export default function MusicPlayer({ dark, setDark, color, windowWidth }) {
-
   const [playing, setPlaying] = useState(false);
-  const [song, setSong] = useState(0);
+  let [song, setSong] = useState(0);
+  const [loading, setLoading] = useState(false);
 
-  const [songPlaying, setSongPlaying] = useState(tracks[0]);
+  const play = () => {
+    console.log(song);
 
-  useEffect(() => {
-    setSongPlaying(tracks[song])
+    document.getElementById("playerSource").src = tracks[song].url;
 
-  }, [song])
-  
+    document.getElementById("player").load();
+
+    document.getElementById("player").play();
+
+    setPlaying(true);
+  };
+
   return (
     <SquareUI color={color} className="nav">
       <RowUI>
         <Rewind
           style={{ margin: " 0 10px 0 0" }}
           onClick={() => {
-            song == 0 ? setSong(6) : setSong(song - 1);
-            document.getElementById("player").load();
-            document.getElementById("player").play();
+            if (song < 7 && song > 0){
+
+              let prev = song - 1;
+
+              setSong(prev);
+
+              console.log(prev);
+
+              document.getElementById("playerSource").src = tracks[prev].url;
+
+              document.getElementById("player").load();
+        
+              document.getElementById("player").play();
+            
+              setPlaying(true)
+
+            } else{
+
+              let prev = 6;
+
+              setSong(prev);
+
+              console.log(prev);
+
+              document.getElementById("playerSource").src = tracks[prev].url;
+
+              document.getElementById("player").load();
+        
+              document.getElementById("player").play();
+            
+              setPlaying(true)
+            }
           }}
         />
         <Play
           onClick={() => {
+            console.log(tracks[song].url);
+
+            console.log(document.getElementById("playerSource"));
+
+            console.log(song);
+
+            document.getElementById("playerSource").src = tracks[song].url;
+        
+            document.getElementById("player").load();
+        
             document.getElementById("player").play();
 
             setPlaying(true);
@@ -115,21 +157,53 @@ export default function MusicPlayer({ dark, setDark, color, windowWidth }) {
         />
         <FastForward
           onClick={() => {
-            song < 6 ? setSong(song + 1) : setSong(0);
-          
-            console.log(tracks[song].url)
-    
-            document.getElementById("player").load();
-  
-            document.getElementById("player").play();
 
-            setPlaying(true)
+              if (song < 6){
+
+                let next = song + 1;
+
+                setSong(next);
+
+                console.log(next);
+  
+                document.getElementById("playerSource").src = tracks[next].url;
+  
+                document.getElementById("player").load();
+          
+                document.getElementById("player").play();
+              
+                setPlaying(true)
+
+              } else{
+
+                let next = 0;
+
+                setSong(next);
+
+                console.log(next);
+  
+                document.getElementById("playerSource").src = tracks[next].url;
+  
+                document.getElementById("player").load();
+          
+                document.getElementById("player").play();
+              
+                setPlaying(true)
+              }
+
+
+        
+
+
+
+
+        
           }}
         />
       </RowUI>
 
-      <audio style={{width: '100%'}} id="player">
-        <source src={"https://media.githubusercontent.com/media/julianmayes/nxtsndy-next/main/public/caleb%20klager%20-%20flicker.wav"} type="audio/wav" />
+      <audio style={{ width: "100%" }} id="player">
+        <source src={tracks[0].url} type="audio/wav" id="playerSource" />
         Your browser does not support the audio tag.
       </audio>
 
