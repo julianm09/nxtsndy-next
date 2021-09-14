@@ -123,7 +123,7 @@ export default function InspirationList({ inspiration, scrollPosition, color }) 
 
   return (
     <ContainerUI>
-      {inspiration && inspiration.map((p) => (
+      {inspiration && inspiration.sort((a, b) => (b.publishedAt < a.publishedAt ? -1 : 1)).map((p) => (
                   <Link key={p._id} href={`/inspiration/${p.slug}`}>
 
               

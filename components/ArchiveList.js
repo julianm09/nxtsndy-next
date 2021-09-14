@@ -127,7 +127,7 @@ export default function ArchiveList({ archive, scrollPosition, color }) {
 
   return (
     <ContainerUI>
-      {archive && archive.map((p) => (
+      {archive && archive.sort((a, b) => (b.publishedAt < a.publishedAt ? -1 : 1)).map((p) => (
                   <Link key={p._id} href={`/archive/${p.slug}`}>
 
               

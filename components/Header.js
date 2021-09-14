@@ -63,8 +63,79 @@ const SquareUI = styled.div`
   padding: 10px;
   font-weight: 500;
 
+
+
   background: ${(props) => props.color.primary};
   border: 1px solid ${(props) => props.color.secondary};
+
+
+  &:hover{
+    background: ${(props) => props.color.secondary};
+    border: 1px solid ${(props) => props.color.primary};
+    color: ${(props) => props.color.primary};
+  }
+
+  @media (max-width: 1000px) {
+    height: 5vh;
+  }
+
+`;
+
+
+const SquareHomeUI = styled.a`
+  background: white;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 10px;
+  font-weight: 500;
+
+
+
+  background: ${(props) => props.page == "/" ? props.color.secondary : props.color.primary};
+  border: 1px solid ${(props) => props.page == "/" ? props.color.secondary : props.color.secondary};
+
+
+  &:hover{
+    background: ${(props) => props.page == "/" ? props.color.secondary : props.color.secondary};
+    border: 1px solid ${(props) => props.page == "/" ? props.color.secondary : props.color.secondary};
+  
+  }
+
+  @media (max-width: 1000px) {
+    height: 5vh;
+  }
+
+`;
+
+const SquareLinkUI = styled.a`
+  background: white;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 10px;
+  font-weight: 500;
+
+
+
+  background: ${(props) => props.color.primary};
+  border: 1px solid ${(props) => props.color.secondary};
+
+
+  &:hover{
+    background: ${(props) => props.color.secondary};
+    border: 1px solid ${(props) => props.color.primary};
+    color: ${(props) => props.color.primary};
+  }
+
+  @media (max-width: 1000px) {
+    height: 5vh;
+  }
+
 `;
 
 const LogoUI = styled.div`
@@ -73,6 +144,7 @@ const LogoUI = styled.div`
   font-family: din-condensed, sans-serif;
   cursor: pointer;
   z-index: 100000;
+  width: 198px;
 `;
 
 const MobileMenuButtonUI = styled.div`
@@ -109,7 +181,7 @@ const MobileSquareUI = styled.div`
   width: 100%;
   height: 5vh;
   height: 50px;
-  border: 1px solid black;
+  border: 1px solid ${(props) => props.color.secondary};
   padding: 10px;
   font-weight: 500;
   display: flex;
@@ -166,17 +238,24 @@ export default function Header({ dark, setDark, color, windowWidth }) {
   }, [windowWidth]);
 
   const handleMobileMenu = () => {
+    
     setMobileNav(!mobileNav);
     mobileNav
       ? (document.body.style.overflow = "auto")
       : (document.body.style.overflow = "hidden");
   };
 
+  const handleMobileLogo = () => {
+    
+    setMobileNav(false);
+
+  };
+
   return (
     <HeaderUI>
       <ContainerUI color={color}>
         <Link href="/">
-          <LogoUI onClick={() => setPage("/")}>NXT SNDY</LogoUI>
+          <LogoUI onClick={handleMobileLogo}>NXT SNDY</LogoUI>
         </Link>
 
         <MobileMenuButtonUI onClick={handleMobileMenu}>
@@ -212,6 +291,12 @@ export default function Header({ dark, setDark, color, windowWidth }) {
           </Link>
 
           <MusicPlayer color={color}/>
+
+          <SquareUI
+            color={color}
+            className="nav"
+            onClick={() => setDark(!dark)}
+          />
 
 
         </MobileMenuUI>
@@ -251,7 +336,10 @@ export default function Header({ dark, setDark, color, windowWidth }) {
           />
 
 <MusicPlayer color={color}/>
-          <SquareUI color={color} className="nav" />
+
+          <SquareLinkUI color={color} className="nav" target="_blank" href="https://www.instagram.com/nxtsndy/" >
+            <Instagram/>
+          </SquareLinkUI>
 
           <NavSquare
             color={color}
@@ -262,7 +350,7 @@ export default function Header({ dark, setDark, color, windowWidth }) {
             page={page}
           />
 
-          <SquareUI color={color} className="nav" />
+          <SquareHomeUI color={color} page={page} className="nav" href="/"/>
         </GridUI>
       </ContainerUI>
 

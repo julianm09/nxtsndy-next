@@ -123,7 +123,7 @@ export default function ShowcaseList({ showcase, scrollPosition, color }) {
 
   return (
     <ContainerUI>
-      {showcase && showcase.map((p) => (
+      {showcase && showcase.sort((a, b) => (b.publishedAt < a.publishedAt ? -1 : 1)).map((p) => (
                   <Link key={p._id} href={`/showcase/${p.slug}`}>
 
               

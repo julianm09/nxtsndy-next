@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
+import emailjs from "emailjs-com";
 
-const ContainerUI = styled.form`
+const ContainerUI = styled.div`
   width: 100%;
 
   display: flex;
@@ -97,7 +98,7 @@ const InputUI = styled.input`
   }
 `;
 
-const ButtonUI = styled.div`
+const ButtonUI = styled.button`
   width: calc(100% / 3 * 1);
   height: 50px;
   display: flex;
@@ -109,6 +110,7 @@ const ButtonUI = styled.div`
   border: none;
   outline: none;
   border-bottom: 1px solid black;
+  cursor: pointer;
 
   background: ${(props) => props.color.primary};
 
@@ -119,9 +121,39 @@ const ButtonUI = styled.div`
   @media (max-width: 800px) {
     width: 50%;
   }
+
+  &:hover {
+    background: ${(props) => props.color.secondary};
+
+    color: ${(props) => props.color.primary};
+  }
 `;
 
 export default function ContactForm({ dark, setDark, color }) {
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    window.scrollTo(0, 0);
+
+    console.log(e)
+
+    emailjs
+      .sendForm(
+        "service_ws7nj4q",
+        "template_4b73yn9",
+        e.target,
+        "user_rKb8FhbgHefKWYYTkB8q0"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
   return (
     <ContainerUI>
       <ColumnUI>
@@ -130,20 +162,37 @@ export default function ContactForm({ dark, setDark, color }) {
         <TextUI>Contact us for inquiries.</TextUI>
       </ColumnUI>
 
-      <FormUI>
+      <FormUI onSubmit={sendEmail}>
         <LabelUI>Your Name</LabelUI>
 
-        <InputUI color={color} />
+        <InputUI
+          color={color}
+          type="text"
+          placeholder="Name"
+          name="user_name"
+        />
 
         <LabelUI>Your Email</LabelUI>
 
-        <InputUI color={color} />
+        <InputUI
+          color={color}
+          type="text"
+          name="user_email"
+          placeholder="Email"
+        />
 
         <LabelUI>Your Message</LabelUI>
 
-        <InputUI color={color} />
+        <InputUI
+          color={color}
+          type="text"
+          name="message"
+          placeholder="Your Message"
+        />
 
-        <ButtonUI color={color}> Send</ButtonUI>
+        <ButtonUI color={color} type="submit">
+          Send
+        </ButtonUI>
       </FormUI>
     </ContainerUI>
   );
