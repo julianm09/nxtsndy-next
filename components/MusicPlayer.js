@@ -77,7 +77,7 @@ export default function MusicPlayer({ dark, setDark, color, windowWidth }) {
   const [loading, setLoading] = useState(false);
 
   const play = () => {
-    console.log(song);
+
 
     document.getElementById("playerSource").src = tracks[song].url;
 
@@ -100,7 +100,6 @@ export default function MusicPlayer({ dark, setDark, color, windowWidth }) {
 
               setSong(prev);
 
-              console.log(prev);
 
               document.getElementById("playerSource").src = tracks[prev].url;
 
@@ -116,7 +115,6 @@ export default function MusicPlayer({ dark, setDark, color, windowWidth }) {
 
               setSong(prev);
 
-              console.log(prev);
 
               document.getElementById("playerSource").src = tracks[prev].url;
 
@@ -130,11 +128,6 @@ export default function MusicPlayer({ dark, setDark, color, windowWidth }) {
         />
         <Play
           onClick={() => {
-            console.log(tracks[song].url);
-
-            console.log(document.getElementById("playerSource"));
-
-            console.log(song);
 
             document.getElementById("playerSource").src = tracks[song].url;
         
@@ -163,8 +156,6 @@ export default function MusicPlayer({ dark, setDark, color, windowWidth }) {
                 let next = song + 1;
 
                 setSong(next);
-
-                console.log(next);
   
                 document.getElementById("playerSource").src = tracks[next].url;
   
@@ -179,8 +170,6 @@ export default function MusicPlayer({ dark, setDark, color, windowWidth }) {
                 let next = 0;
 
                 setSong(next);
-
-                console.log(next);
   
                 document.getElementById("playerSource").src = tracks[next].url;
   

@@ -135,7 +135,6 @@ export default function ContactForm({ dark, setDark, color }) {
     e.preventDefault();
     window.scrollTo(0, 0);
 
-    console.log(e)
 
     emailjs
       .sendForm(
@@ -146,10 +145,10 @@ export default function ContactForm({ dark, setDark, color }) {
       )
       .then(
         (result) => {
-          console.log(result.text);
+    
         },
         (error) => {
-          console.log(error.text);
+   
         }
       );
   };

@@ -119,7 +119,7 @@ cursor: pointer;
 
 
 export default function InspirationList({ inspiration, scrollPosition, color }) {
-  console.log(inspiration);
+
 
   return (
     <ContainerUI>

@@ -119,7 +119,6 @@ cursor: pointer;
 
 
 export default function ShowcaseList({ showcase, scrollPosition, color }) {
-  console.log(showcase);
 
   return (
     <ContainerUI>

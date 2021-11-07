@@ -123,7 +123,7 @@ cursor: pointer;
 
 
 export default function ArchiveList({ archive, scrollPosition, color }) {
-  console.log(archive);
+
 
   return (
     <ContainerUI>
