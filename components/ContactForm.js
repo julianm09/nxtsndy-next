@@ -141,7 +141,7 @@ export default function ContactForm({ dark, setDark, color }) {
         process.env.SERVICE_ID,
         process.env.TEMPLATE_ID,
         e.target,
-        process.env.PUBLIC_KEY
+        "user_rKb8FhbgHefKWYYTkB8q0"
       )
       .then(
         (result) => {
