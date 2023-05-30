@@ -42,31 +42,31 @@ const TrackNameUI = styled.a`
 
 const tracks = [
   {
-    url: "https://nxt-sndy.s3.us-east-2.amazonaws.com/caleb+klager+-+flicker.wav",
+    url: "https://nxt-sndy.s3.us-west-2.amazonaws.com/1+-+flicker.wav",
     title: "Caleb Klager - flicker",
   },
   {
-    url: "https://nxt-sndy.s3.us-east-2.amazonaws.com/caleb+klager+-+interference.wav",
+    url: "https://nxt-sndy.s3.us-west-2.amazonaws.com/2+-+interference.wav",
     title: "Caleb Klager - interference",
   },
   {
-    url: "https://nxt-sndy.s3.us-east-2.amazonaws.com/caleb+klager+-+visions.wav",
+    url: "https://nxt-sndy.s3.us-west-2.amazonaws.com/3+-+visions.wav",
     title: "Caleb Klager - visions",
   },
   {
-    url: "https://nxt-sndy.s3.us-east-2.amazonaws.com/caleb+klager+-+waking.wav",
+    url: "https://nxt-sndy.s3.us-west-2.amazonaws.com/4+-+Waking.wav",
     title: "Caleb Klager - waking",
   },
   {
-    url: "https://nxt-sndy.s3.us-east-2.amazonaws.com/caleb+klager+-+memory+type.wav",
+    url: "https://nxt-sndy.s3.us-west-2.amazonaws.com/5+-+memory+type.wav",
     title: "Caleb Klager - memory type",
   },
   {
-    url: "https://nxt-sndy.s3.us-east-2.amazonaws.com/caleb+klager+-++hologram.wav",
+    url: "https://nxt-sndy.s3.us-west-2.amazonaws.com/6+-+hologram.wav",
     title: "Caleb Klager - hologram",
   },
   {
-    url: "https://nxt-sndy.s3.us-east-2.amazonaws.com/caleb+klager+-+sunday's+light.wav",
+    url: "https://nxt-sndy.s3.us-west-2.amazonaws.com/7+-+sunday_s+light.wav",
     title: "Caleb Klager - sunday's light",
   },
 ];
