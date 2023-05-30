@@ -158,8 +158,6 @@ export default function Showcase({ dark, scrollPosition, color, windowWidth, sho
   const [hover, setHover] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  console.log(showcase)
-
   return (
     <div>
   

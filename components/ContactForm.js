@@ -138,10 +138,10 @@ export default function ContactForm({ dark, setDark, color }) {
 
     emailjs
       .sendForm(
-        "service_ws7nj4q",
-        "template_4b73yn9",
+        process.env.SERVICE_ID,
+        process.env.TEMPLATE_ID,
         e.target,
-        "user_rKb8FhbgHefKWYYTkB8q0"
+        process.env.OPENAI_API_KEY
       )
       .then(
         (result) => {
