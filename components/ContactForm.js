@@ -141,7 +141,7 @@ export default function ContactForm({ dark, setDark, color }) {
         process.env.SERVICE_ID,
         process.env.TEMPLATE_ID,
         e.target,
-        process.env.OPENAI_API_KEY
+        process.env.PUBLIC_KEY
       )
       .then(
         (result) => {
